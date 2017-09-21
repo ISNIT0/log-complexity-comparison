@@ -1,0 +1,16 @@
+{
+  "name": "log-complexity-comparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "./node_modules/.bin/http-server ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^1.1.1",
+    "http-server": "^0.10.0",
+    "yargs": "^9.0.1"
+  }
+}

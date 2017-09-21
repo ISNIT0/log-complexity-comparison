@@ -1,0 +1,33 @@
+<head>
+
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script id='template' type='text/html'>
+        <h1>Logs/Complexity</h1>
+        <br />
+        <br /> {{#each data}}
+        <b>{{class}}</b> <span>({{file}}):</span><br />
+        <span class='{{#if attentionRequiredScore > 10}}red{{/if}}'><b>Attention Needed Score: </b><span>{{Math.round(attentionRequiredScore)}}</span></span>
+        <br />
+        <b>Complexity: </b><span class='{{#if complexity > 30}}red{{/if}}'>{{complexity}}</span><br />
+        <b>No. of Logs: </b><span>{{numberOfLogs}}</span>
+
+        <br />
+        <hr /> {{/each}}
+
+    </script>
+
+</body>
+
+<script src='https://cdn.jsdelivr.net/npm/ractive'></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+<script src='./client.js'></script>
