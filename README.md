@@ -28,3 +28,7 @@ It was originally built to help with research done by Julian Harty and Joseph Re
 The output is a JSON file and an HTML report, describing which files need more logging attention.
 
 Code complexity is known to be a good indicator of bugs, and logging is known to make debugging and bug tracking easier. It stands to reason we should consistently log our complex code, especially in large systems.
+
+
+## Thoughts from application
+Having looked at results in detail and attempted to use them to improve logging, it seems this specific heuristic on it's own is not 100% helpful. Some code may be quite readable (e.g. using function chaining and RXJava), but appear to the complexity algorithm to be difficult to read. In order to fully assess this, a wider variety of apps and code-bases will need to be tested.
