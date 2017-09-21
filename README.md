@@ -9,7 +9,7 @@
 * Exported [MetricsReloaded](https://github.com/BasLeijdekkers/MetricsReloaded) CSV
 
 
-# Usage
+## Usage
 ```bash
 > node ./index.js compareLogsAndComplexity --logSearcherOutput ../log-searcher/data.json --metricsReloadedCSV ~/Desktop/complexity.csv
 ```
@@ -20,3 +20,9 @@ To view a report on this data, run:
 ```bash
 > npm run serve
 ```
+
+
+## Purpose
+This tool helps find complex code that does not have much logging to back it up.
+It was originally built to help with research done by Julian Harty and Joseph Reeve on logging placement.
+The output is a JSON file and an HTML report, describing which files need more logging attention.
