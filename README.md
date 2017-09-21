@@ -26,3 +26,5 @@ To view a report on this data, run:
 This tool helps find complex code that does not have much logging to back it up.
 It was originally built to help with research done by Julian Harty and Joseph Reeve on logging placement.
 The output is a JSON file and an HTML report, describing which files need more logging attention.
+
+Code complexity is known to be a good indicator of bugs, and logging is known to make debugging and bug tracking easier. It stands to reason we should consistently log our complex code, especially in large systems.
