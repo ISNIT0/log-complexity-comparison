@@ -12,8 +12,12 @@
 
     <script id='template' type='text/html'>
         <h1>Logs/Complexity</h1>
+        <b>Generated with version: </b> <span>{{data.version}}</span><Br />
+        <b>Report Generated: </b> <span>{{formatDate(data.header.time)}}</span><br />
+        <b>Log Scan Data From: </b> <span>{{formatDate(data.header.logScanned)}}</span><br />
+        <hr/>
         <br />
-        <br /> {{#each data}}
+        <br /> {{#each data.data}}
         <b>{{class}}</b> <span>({{file}}):</span><br />
         <span class='{{#if attentionRequiredScore > 10}}red{{/if}}'><b>Attention Needed Score: </b><span>{{Math.round(attentionRequiredScore)}}</span></span>
         <br />

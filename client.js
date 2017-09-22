@@ -1,6 +1,11 @@
 const r = new Ractive({
     el: 'body',
     template: '#template',
+    data:{
+        formatDate:function(dateNum){
+            return (new Date(dateNum)).toUTCString();
+        }
+    },
     computed: {
         
     }

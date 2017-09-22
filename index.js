@@ -29,7 +29,7 @@ yargs
                     console.info(`Reading log-searcher data from [${filePath}]`);
                     const data = require(filePath);
                     if (data.version && semver.satisfies(data.version, requiredVersions['log-searcher'])) {
-                        return data.data;
+                        return data;
                     } else {
                         const message = `Log-Searcher input version not compatible. Expected [${requiredVersions['log-searcher']}] but got [${data.version}]`;
                         console.error(message);
@@ -73,8 +73,8 @@ function compareLogsAndComplexity({
     logSearcherOutput: logs,
     metricsReloadedCSV: metrics
 }) {
-    if(!logs) return;
-    const filesOfLogs = Object.keys(logs);
+    if (!logs) return;
+    const filesOfLogs = Object.keys(logs.data);
     console.info(`Successfully read [${filesOfLogs.length}] files and [${metrics.length}] metric entries`);
     const fileNamesXClassNames = filesOfLogs
         .reduce((acc, fileName) => {
@@ -93,7 +93,7 @@ function compareLogsAndComplexity({
             const tlcn = Class.split('.').slice(-1)[0];
             const fileName = fileNamesXClassNames[tlcn];
             if (!fileName) return null;
-            const numberOfLogs = logs[fileName].length;
+            const numberOfLogs = logs.data[fileName].length;
             return {
                 complexity: WMC,
                 class: Class,
@@ -108,5 +108,20 @@ function compareLogsAndComplexity({
     const outPath = path.resolve(__dirname, './out.json');
     console.info(`Writing output to [${outPath}]`);
 
-    fs.writeFileSync(outPath, JSON.stringify(out), 'utf8');
+    fs.writeFileSync(outPath, JSON.stringify({
+        version: package.version,
+        header: {
+            logScanned: logs.generatedAt,
+            time: Date.now()
+        },
+        data: out
+    }), 'utf8');
+
+
+    console.info(`Successfully written file
+    
+    *---------------------------------------*
+    | To view the data, run "npm run serve" |
+    *---------------------------------------*\n
+    `);
 }
