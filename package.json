@@ -11,6 +11,8 @@
   "dependencies": {
     "csv": "^1.1.1",
     "http-server": "^0.10.0",
+    "scribe-js": "^2.0.4",
+    "semver": "^5.4.1",
     "yargs": "^9.0.1"
   }
 }
