@@ -32,3 +32,12 @@ Code complexity is known to be a good indicator of bugs, and logging is known to
 
 ## Thoughts from application
 Having looked at results in detail and attempted to use them to improve logging, it seems this specific heuristic on it's own is not 100% helpful. Some code may be quite readable (e.g. using function chaining and RXJava), but appear to the complexity algorithm to be difficult to read. In order to fully assess this, a wider variety of apps and code-bases will need to be tested.
+
+Often, logging is more useful before and after 'complex' code, I.e. outside of class code, before a method is called. (e.g. "Operation Complete", progressBar.setProgress(100))
+
+The complexity we're currently doing, is just based on file. Not per class, or per method. This means that we may have a large file, with low complexity code flagging as un-readable.
+
+Sometimes the complexity is from if-statements deciding which log message to print or show the user.
+
+We had real issues with getting huge complexity numbers for simple (but large) switch statements.
+A K9mail method was given a complexity of over 400, just for having a long switch statement.
